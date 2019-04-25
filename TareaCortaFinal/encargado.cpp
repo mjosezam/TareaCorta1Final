@@ -64,9 +64,8 @@ nodo* encargado::Cola(){
 
 void encargado::funcion(){
     nodo* temp=vehiculosProcesos->getHead();
-    cout << "TEMPPPPPPPPPPPP  " << temp << endl;
-    //agenda
     if(vehiculosProcesos->getHead()==0) {
+        cout << "La agenda está vacia" << endl;
         return;
     }
     else{
@@ -74,10 +73,9 @@ void encargado::funcion(){
             return;
         }
         int i=0;
-        cout << "OOOOOOO" << temp << endl;
         while(temp!=0 && temp->getVehiculo()->procesos[i][1]!='0'){
+            cout << "Ejecutando proceso " << temp->getVehiculo()->procesos[i][0]<< endl;
             i++;
-            cout<<"FINAL" << temp->getVehiculo()<<endl;
             restar(temp->getVehiculo());
             temp=temp->getSiguiente();
             if(temp==0){
@@ -101,6 +99,6 @@ void encargado::restar(Vehiculo* carro){
 }
 nodo* encargado::ingresar(nodo* carroNuevo){
     vehiculosProcesos->insertarInicio(carroNuevo);
-    cout<<"inserto  "<< vehiculosProcesos->Head->getVehiculo() << endl;
+    cout<<"Inserción de Vehiculo en proceso "<< vehiculosProcesos->Head->getVehiculo()->procesos[0][0]<< " en la agenda correspondiente" << endl;
     return Cola();
 }

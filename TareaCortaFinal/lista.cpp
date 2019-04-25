@@ -21,10 +21,8 @@ void lista::insertarFinal(nodo* nuevonodo){
 }
 
 void lista::insertarInicio(nodo* nuevonodo){
-    cout<< "1      " <<nuevonodo->getVehiculo()<<endl;
     nuevonodo->setSiguiente(Head);
     Head = nuevonodo;
-    cout<< "2      " << Head<<endl;
     this->cantidad+=1;
 }
 

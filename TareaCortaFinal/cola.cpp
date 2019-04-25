@@ -4,14 +4,9 @@ cola::cola()
 {}
 
 Vehiculo* cola::solicitar(){
-    cout<<Inicial<<endl;
-    if(Inicial==0){
-        //return NULL;
-        cout<<"aACTUAL ==NULLPTR"<<endl;
-    }
+    if(Inicial==0){}
     else{
         nodo* actual = this->Inicial;
-        cout<<"antes de cant"<<endl;
         this->cantidad-=1;
         if(actual->getSiguiente()!=nullptr){
             Vehiculo* carro= actual->getVehiculo();
@@ -21,8 +16,6 @@ Vehiculo* cola::solicitar(){
             return carro;
         }
         else {
-
-            cout<<"aiofhIOO"<<endl;
             Vehiculo* carro= actual->getVehiculo();
             free(Inicial);
             Inicial= nullptr;
@@ -33,7 +26,7 @@ Vehiculo* cola::solicitar(){
 }
 void cola::agregar(nodo* actual){
     this->cantidad+=1;
-    cout << "AGREGAR DE COLA" << endl;
+    cout << "Agregar a cola general" << actual << endl;
     if(Ultimo==nullptr){
         Ultimo->setSiguiente(actual);
         Inicial=Ultimo;
@@ -47,7 +40,7 @@ void cola::agregar(nodo* actual){
 void cola::recorrer(){
     nodo* temp= Inicial;
     if(Inicial==nullptr && Ultimo==nullptr){
-        std::cout<<"Queue is empty"<<endl;
+        std::cout<<"Cola vacia"<<endl;
     }while(temp!=nullptr){
         std::cout<<temp<<endl;
         temp= temp->getSiguiente();
